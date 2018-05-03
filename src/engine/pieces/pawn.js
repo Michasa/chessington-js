@@ -6,6 +6,15 @@ export default class Pawn extends Piece {
     }
 
     getAvailableMoves(board) {
-        return new Array(0);
+        let mySquare = board.findPiece(this);
+        let direction = this.player === Player.WHITE? 1:-1;
+
+        let availableMoves = new Array(mySquare.offset(direction,0));
+
+        if(!this.hasMoved){
+            availableMove.push(mySquare.offset(direction*2,0))
+        }
+
+        return availableMoves
     }
 }
